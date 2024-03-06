@@ -44,10 +44,10 @@ resource "aws_ecs_service" "default" {
   }
 
   dynamic "service_registries" {
-    iterator = registry_name
+    iterator = registry
     for_each = var.service_registries
     content {
-      registry_arn = registry_name
+      registry_arn = lookup(registry.value, "arn")
     }
   }
 
