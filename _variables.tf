@@ -523,3 +523,8 @@ variable "task_role_policies" {
   description = "Custom policies to be added on the task role."
 }
 
+variable "service_registries" {
+  default     = []
+  description = "(Optional) Service discovery registries for the service"
+  type        = list(string)
+}
