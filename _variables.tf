@@ -524,7 +524,7 @@ variable "task_role_policies" {
 }
 
 variable "service_registries" {
-  default     = [{}]
+  default     = []
   description = "(Optional) Service discovery registries for the service"
-  type        = list(object)
+  type        = list(object({arn = string}))
 }
