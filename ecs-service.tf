@@ -46,7 +46,7 @@ resource "aws_ecs_service" "default" {
   dynamic "service_registries" {
     iterator = registry_name
     for_each = var.service_registries
-    content = {
+    content {
       registry_arn = registry_name
     }
   }
