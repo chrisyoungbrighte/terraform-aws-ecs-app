@@ -43,6 +43,14 @@ resource "aws_ecs_service" "default" {
     type = var.deployment_controller # default "CODE_DEPLOY"
   }
 
+  dynamic "service_registries" {
+    iterator = registry_name
+    for_each = var.service_registries
+    content = {
+      registry_arn = registry_name
+    }
+  }
+
   dynamic "capacity_provider_strategy" {
     iterator = capacity_provider_strategy
 
